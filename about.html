@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - RullX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <div id="navbar"></div>
+
+    <section class="flex items-center justify-center h-screen">
+        <div class="container mx-auto flex flex-col md:flex-row items-center px-6">
+            <div class="text-center md:text-left md:w-1/2">
+                <h1 class="text-4xl font-bold">Hi, I'm Syahrul Ardi Prasetiyo</h1>
+                <p class="text-blue-400 text-lg">Creating Game</p>
+                <p class="mt-4 text-gray-300">Saya Masih Belajar Untuk Membuat Game Pribadi, Jika Tertarik Klik Tombol Di Bawah</p>
+                <button onclick="window.location.href='game.html'" class="mt-6 px-4 py-2 bg-blue-500 text-white rounded-lg">Play Game</button>
+                <div class="flex space-x-4 mt-4">
+                    <a href="#" class="text-white text-2xl">📷</a>
+                    <a href="#" class="text-white text-2xl">📱</a>
+                    <a href="#" class="text-white text-2xl">🔗</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center mt-6 md:mt-0">
+                <div class="relative w-60 h-60 bg-blue-500 rounded-lg flex items-center justify-center">
+                    <img src="newprofile.jpg" alt="Profile" class="w-full h-full object-cover rounded-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            });
+    </script>
+</body>
+</html>
