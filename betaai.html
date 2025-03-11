@@ -27,7 +27,7 @@
 </head>
 <body class="bg-gray-900 text-white flex min-h-screen">
     
-    <aside class="w-64 bg-gray-800 p-4 space-y-2 hidden" id="sidebar">
+    <aside class="w-64 bg-gray-800 p-4 space-y-2 hidden z-30" id="sidebar">
         <h2 class="text-lg font-bold">Riwayat Chat</h2>
         <ul id="chat-history" class="space-y-2"></ul>
     </aside>
@@ -37,7 +37,7 @@
         <nav class="bg-black p-4 w-full">
             <div class="container mx-auto flex items-center">
                 <button onclick="toggleSidebar()" class="text-white text-2xl ml-[-30px]">☰</button>
-                <a href="index.html" class="text-white text-lg font-bold ml-4">RullX</a>
+                <a href="index.html" class="text-white text-lg font-bold ml-4">RullX AI</a>
                 <ul class="flex space-x-4 ml-auto">
                     <li><a href="home.html" class="text-white hover:text-gray-400">Home</a></li>
                     <li><a href="betaai.html" class="text-white hover:text-gray-400">Beta AI</a></li>
@@ -138,7 +138,43 @@
                 'berapa 2+2': 'Jawabannya adalah 4.',
                 'apa itu AI': 'AI (Artificial Intelligence) adalah kecerdasan buatan yang dibuat untuk meniru cara berpikir manusia.',
                 'buat lelucon': 'Kenapa komputer tidak pernah lelah? Karena mereka selalu punya banyak "cache"!',
-                'apa warna langit': 'Warna langit biasanya biru di siang hari dan berubah saat matahari terbenam.'
+                'apa warna langit': 'Warna langit biasanya biru di siang hari dan berubah saat matahari terbenam.',
+                'siapa ilmuwan terkenal': 'Beberapa ilmuwan terkenal adalah Albert Einstein, Isaac Newton, dan Nikola Tesla.',
+                'berapa jarak bumi ke matahari': 'Jarak rata-rata Bumi ke Matahari sekitar 149,6 juta kilometer.',
+                'berapa kecepatan cahaya': 'Kecepatan cahaya di ruang hampa sekitar 299.792.458 meter per detik.',
+                'siapa penemu bola lampu': 'Bola lampu ditemukan oleh Thomas Edison.',
+                'berapa 5x6': 'Jawabannya adalah 30.',
+                'berapa akar dari 16': 'Akar kuadrat dari 16 adalah 4.',
+                'siapa penulis harry potter': 'J.K. Rowling adalah penulis seri Harry Potter.',
+                'berapa jumlah planet di tata surya': 'Ada 8 planet di tata surya kita.',
+                'hewan tercepat di dunia': 'Hewan tercepat di dunia adalah burung peregrine falcon yang bisa mencapai kecepatan lebih dari 300 km/jam.',
+                'gunung tertinggi di dunia': 'Gunung tertinggi di dunia adalah Gunung Everest dengan ketinggian sekitar 8.848 meter.',
+                'negara terbesar di dunia': 'Negara terbesar di dunia berdasarkan luas wilayah adalah Rusia.',
+                'berapa populasi dunia': 'Populasi dunia saat ini sekitar 8 miliar orang.',
+                'siapa manusia pertama di bulan': 'Neil Armstrong adalah manusia pertama yang menginjakkan kaki di bulan pada tahun 1969.',
+                'kapan perang dunia 2 berakhir': 'Perang Dunia II berakhir pada tahun 1945.',
+                'apa mata uang jepang': 'Mata uang Jepang adalah Yen (¥).',
+                'siapa pendiri microsoft': 'Pendiri Microsoft adalah Bill Gates dan Paul Allen.',
+                'siapa pendiri apple': 'Pendiri Apple adalah Steve Jobs, Steve Wozniak, dan Ronald Wayne.',
+                'berapa panjang sungai amazon': 'Sungai Amazon memiliki panjang sekitar 6.575 km.',
+                'berapa jumlah benua di dunia': 'Ada 7 benua di dunia.',
+                'negara dengan populasi terbesar': 'Negara dengan populasi terbesar adalah China.',
+                'hewan terbesar di dunia': 'Hewan terbesar di dunia adalah paus biru.',
+                'kapan internet ditemukan': 'Internet mulai berkembang sejak tahun 1960-an dan 1970-an.',
+                'siapa penemu pesawat terbang': 'Pesawat terbang ditemukan oleh Wright bersaudara, Orville dan Wilbur Wright.',
+                'berapa suhu air mendidih': 'Air mendidih pada suhu 100°C di tekanan atmosfer standar.',
+                'apa ibu kota indonesia': 'Ibu kota Indonesia adalah Jakarta.',
+                'berapa jumlah provinsi di indonesia': 'Saat ini, Indonesia memiliki 38 provinsi.',
+                'dimana menara eiffel': 'Menara Eiffel terletak di Paris, Prancis.',
+                'berapa luas indonesia': 'Luas Indonesia sekitar 1,9 juta km².',
+                'berapa tinggi patung liberty': 'Patung Liberty memiliki tinggi sekitar 93 meter.',
+                'siapa pemilik tesla': 'Tesla dimiliki oleh Elon Musk.',
+                'apa bahasa resmi brasil': 'Bahasa resmi Brasil adalah Portugis.',
+                'dimana piramida giza': 'Piramida Giza terletak di Mesir.',
+                'siapa yang membuat facebook': 'Facebook dibuat oleh Mark Zuckerberg.',
+                'berapa kedalaman laut terdalam': 'Palung Mariana adalah titik terdalam di laut dengan kedalaman sekitar 11.000 meter.',
+                'berapa kecepatan suara': 'Kecepatan suara di udara sekitar 343 meter per detik.',
+                'siapa pelukis mona lisa': 'Mona Lisa dilukis oleh Leonardo da Vinci.',
             };
             return responses[userInput.toLowerCase()] || 'Maaf, saya tidak mengerti pertanyaan Anda.';
         }
