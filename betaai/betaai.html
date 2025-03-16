@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RullX AI - Your personal AI assistant to help with any questions or tasks.">
+    <title>RullX AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white flex flex-col min-h-screen">
+    
+    <nav class="bg-black p-4 w-full">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-white text-lg font-bold">RullX AI</a>
+            <ul class="flex space-x-4">
+                <li><a href="../home.html" class="text-white hover:text-gray-400">Home</a></li>
+                <li><a href="betaai.html" class="text-white hover:text-gray-400">Beta AI</a></li>
+                <li><a href="../about.html" class="text-white hover:text-gray-400">About Me</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="flex-grow container mx-auto p-4 mt-8">
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+            <h1 class="text-4xl font-bold mb-4">Hi, I’m RullX AI.</h1>
+            <p class="mb-4">Adakah yang bisa saya bantu?</p>
+            <div id="chatArea" class="mb-4 p-4 bg-gray-700 rounded-lg h-48 overflow-y-auto"></div>
+            <div class="flex items-center">
+                <input id="userInput" type="text" placeholder="Silahkan isi pertanyaan anda" class="flex-grow p-2 rounded-l bg-gray-700 text-white" onkeypress="handleKeyPress(event)">
+                <button onclick="sendMessage()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r">
+                    Send
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function sendMessage() {
+            const userInput = document.getElementById('userInput');
+            const chatArea = document.getElementById('chatArea');
+
+            if (userInput.value.trim() === "") {
+                alert("Silakan masukkan pertanyaan Anda.");
+                return;
+            }
+
+            // Tampilkan pesan pengguna
+            const userMessage = document.createElement('div');
+            userMessage.className = 'mb-2 text-right';
+            userMessage.innerHTML = `<p class="bg-blue-500 inline-block p-2 rounded-lg">${userInput.value}</p>`;
+            chatArea.appendChild(userMessage);
+
+            // Dapatkan respon AI
+            const aiResponse = getAIResponse(userInput.value);
+
+            // Tampilkan pesan AI tanpa animasi
+            const aiMessage = document.createElement('div');
+            aiMessage.className = 'mb-2 text-left';
+            aiMessage.innerHTML = `
+                <p class="bg-gray-600 inline-block p-2 rounded-lg">
+                    <strong>RullX AI :</strong> ${aiResponse}
+                </p>
+            `;
+            chatArea.appendChild(aiMessage);
+
+            // Kosongkan input
+            userInput.value = '';
+
+            // Scroll ke bawah
+            chatArea.scrollTop = chatArea.scrollHeight;
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function getAIResponse(question) {
+            const lowerQuestion = question.toLowerCase();
+
+            if (lowerQuestion.includes("apa kabar") || lowerQuestion.includes("how are you")) {
+                return "Saya baik-baik saja, terima kasih! Ada yang bisa saya bantu?";
+            } else if (lowerQuestion.includes("nama kamu") || lowerQuestion.includes("your name")) {
+                return "Nama saya RullX AI, asisten virtual Anda.";
+            } else if (lowerQuestion.includes("help") || lowerQuestion.includes("bantu")) {
+                return "Tentu, saya di sini untuk membantu Anda. Apa yang bisa saya lakukan?";
+            } else if (lowerQuestion.includes("terima kasih") || lowerQuestion.includes("thank you")) {
+                return "Sama-sama! Jika ada pertanyaan lain, jangan ragu untuk bertanya.";
+            } else if (lowerQuestion.includes("bye") || lowerQuestion.includes("selamat tinggal")) {
+                return "Selamat tinggal! Sampai jumpa lagi.";
+            } else if (lowerQuestion.includes("jam") || lowerQuestion.includes("waktu")) {
+                const now = new Date();
+                return `Sekarang jam ${now.toLocaleTimeString()}.`;
+            } else if (lowerQuestion.includes("tanggal") || lowerQuestion.includes("hari ini")) {
+                const now = new Date();
+                return `Hari ini tanggal ${now.toLocaleDateString()}.`;
+            } else if (lowerQuestion.includes("cuaca") || lowerQuestion.includes("weather")) {
+                return "Maaf, saya tidak bisa memeriksa cuaca saat ini. Anda bisa mengeceknya di aplikasi cuaca.";
+            } else if (lowerQuestion.includes("rekomendasi film") || lowerQuestion.includes("recommend movie")) {
+                return "Saya merekomendasikan film 'Inception'. Film ini sangat menarik!";
+            } else if (lowerQuestion.includes("musik") || lowerQuestion.includes("music")) {
+                return "Anda bisa mendengarkan musik di platform seperti Spotify atau YouTube.";
+            } else if (lowerQuestion.includes("berita") || lowerQuestion.includes("news")) {
+                return "Anda bisa mengecek berita terbaru di situs berita seperti BBC atau CNN.";
+            } else if (lowerQuestion.includes("matematika") || lowerQuestion.includes("math")) {
+                return "Saya bisa membantu dengan matematika dasar. Apa yang ingin Anda hitung?";
+            } else if (lowerQuestion.includes("suhu") || lowerQuestion.includes("temperature")) {
+                return "Maaf, saya tidak bisa mengukur suhu saat ini. Anda bisa menggunakan termometer.";
+            } else if (lowerQuestion.includes("tips produktivitas") || lowerQuestion.includes("productivity tips")) {
+                return "Coba buat daftar tugas harian dan prioritaskan yang paling penting.";
+            } else {
+                return "Maaf, saya tidak mengerti pertanyaan Anda. Bisakah Anda menjelaskan lebih lanjut?";
+            }
+        }
+    </script>
+</body>
+</html>
